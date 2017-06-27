@@ -1,6 +1,6 @@
-const parrot=require('node-parrot-drone');
+const parrot = require('node-parrot-drone');
 const keypress = require('keypress')
-const drone=new parrot.Wifi;
+const drone = new parrot.Wifi;
 
 ///start keypress
 keypress(process.stdin);
@@ -66,8 +66,8 @@ function turnRight() {
   const commandClass = project.Piloting;
 
   commandClass.PCMD.flag.value = 1;
-  commandClass.PCMD.speed.value = 100;
-  commandClass.PCMD.turn.value = 25;
+//  commandClass.PCMD.speed.value = commandClass.PCMD.speed.value || 0;
+  commandClass.PCMD.turn.value = 20;
 
   const msg = createPCMDMessage(project, commandClass);
   drone.message.send(msg);
@@ -79,8 +79,8 @@ function turnLeft() {
   const commandClass = project.Piloting;
 
   commandClass.PCMD.flag.value = 1;
-  commandClass.PCMD.speed.value = 100;
-  commandClass.PCMD.turn.value = -25;
+//  commandClass.PCMD.speed.value = commandClass.PCMD.speed.value || 0;
+  commandClass.PCMD.turn.value = -20;
 
   const msg = createPCMDMessage(project, commandClass);
   drone.message.send(msg);
